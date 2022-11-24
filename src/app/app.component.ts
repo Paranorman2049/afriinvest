@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     new HSHeader('#header').init();
-
+    
+    // JS Plugins Init 
     // INITIALIZATION OF MEGA MENU
       // =======================================================
       new HSMegaMenu('.js-mega-menu', {
