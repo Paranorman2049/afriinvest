@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HeadComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeadComponent } from './shared/header.component';
+import { FooterComponent } from './shared/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './pages/about.component';
+import { ServicesComponent } from './pages/services.component';
+import { appRoutes } from './routes'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
-    FooterComponent
+    HomeComponent,
+    FooterComponent,
+    AboutComponent,
+    ServicesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
