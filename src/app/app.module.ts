@@ -8,7 +8,9 @@ import { FooterComponent } from './shared/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './pages/about.component';
 import { ServicesComponent } from './pages/services.component';
-import { appRoutes } from './routes'
+import { HireUsComponent } from './pages/hireus.component';
+import { ContactUsComponent } from './pages/contactus.component';
+import { appRoutes } from './routes';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { appRoutes } from './routes'
     HomeComponent,
     FooterComponent,
     AboutComponent,
-    ServicesComponent
+    ServicesComponent,
+    HireUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

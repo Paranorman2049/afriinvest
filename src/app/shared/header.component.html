@@ -91,12 +91,12 @@
                       <div class="row">
                         <div class="col-sm mb-3 mb-sm-0">
                           <span class="dropdown-header">Who we are</span>
-                          <a class="dropdown-item active" href="./landing-classic-corporate.html">Home</a>
-                          <a class="dropdown-item " href="./landing-classic-analytics.html">Partners<span class="badge bg-primary rounded-pill ms-1">Hot</span></a>
-                          <a class="dropdown-item " href="./landing-classic-studio.html">About Us</a>
-                          <a class="dropdown-item " href="./landing-classic-marketing.html">Marketing</a>
-                          <a class="dropdown-item " href="./landing-classic-consulting.html">Consulting</a>
-                          <a class="dropdown-item " href="./landing-classic-business.html">Business</a>
+                          <a class="dropdown-item active" [routerLink]="['/home']">Home</a>
+                          <a class="dropdown-item " href="#">Partners<span class="badge bg-primary rounded-pill ms-1">new</span></a>
+                          <a class="dropdown-item " [routerLink]="['/about']">About Us</a>
+                          <a class="dropdown-item " href="#">Marketing</a>
+                          <a class="dropdown-item " [routerLink]="['/hire']">Consulting</a>
+                          <a class="dropdown-item " href="#">Project</a>
                         </div>
                         <!-- End Col -->
 
@@ -164,7 +164,7 @@
                 <a class="dropdown-item " href="./blog-newsroom.html">Newsroom</a>
                 <a class="dropdown-item " href="./blog-article.html">Media</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item " href="./blog-author-profile.html">Investors' testimony</a>
+                <a class="dropdown-item " href="./blog-author-profile.html">Customer stories</a>
               </div>
               <!-- End Mega Menu -->
             </li>
