@@ -33,7 +33,8 @@
               "src/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css",
               "src/assets/vendor/aos/dist/aos.css",
               "src/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/assets/css/theme.min.css"
+              "src/assets/css/theme.min.css",
+              "src/assets/css/snippets.min.css"
             ],
             "scripts": [
               "src/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
@@ -41,6 +42,7 @@
               "src/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js",
               "src/assets/vendor/hs-show-animation/dist/hs-show-animation.min.js",
               "src/assets/vendor/hs-go-to/dist/hs-go-to.min.js",
+              "src/assets/vendor/hs-nav-scroller/dist/hs-nav-scroller.min.js",
               "src/assets/vendor/aos/dist/aos.js",
               "src/assets/vendor/typed.js/lib/typed.min.js",
               "src/assets/vendor/swiper/swiper-bundle.min.js",
