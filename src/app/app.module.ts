@@ -10,6 +10,9 @@ import { AboutComponent } from './pages/about.component';
 import { ServicesComponent } from './pages/services.component';
 import { HireUsComponent } from './pages/hireus.component';
 import { ContactUsComponent } from './pages/contactus.component';
+import { HowToComponent } from './pages/howto.component';
+import { LearnMoreComponent } from './pages/learnmore.component';
+import { PageNotFoundComponent } from './pages/404.component';
 import { appRoutes } from './routes';
 
 
@@ -22,7 +25,10 @@ import { appRoutes } from './routes';
     AboutComponent,
     ServicesComponent,
     HireUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    HowToComponent,
+    LearnMoreComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
