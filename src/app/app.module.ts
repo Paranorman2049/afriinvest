@@ -13,7 +13,9 @@ import { ContactUsComponent } from './pages/contactus.component';
 import { HowToComponent } from './pages/howto.component';
 import { LearnMoreComponent } from './pages/learnmore.component';
 import { PageNotFoundComponent } from './pages/404.component';
+import { ProjectComponent } from './pages/project.component';
 import { appRoutes } from './routes';
+import { FAQComponent } from './pages/faq.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { appRoutes } from './routes';
     ContactUsComponent,
     HowToComponent,
     LearnMoreComponent,
+    ProjectComponent,
+    FAQComponent,
     PageNotFoundComponent
   ],
   imports: [
