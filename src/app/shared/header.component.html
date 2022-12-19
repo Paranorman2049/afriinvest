@@ -158,7 +158,8 @@
 
             <!-- Button -->
             <li class="nav-item">
-              <a class="btn btn-primary btn-transition"  [routerLink]="['/contactus']" target="_blank">Message Us Now!</a>
+              <!-- link for modal -->
+              <a class="btn btn-primary btn-transition" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="New Message">Message us now!</a>
             </li>
             <!-- End Button -->
           </ul>
@@ -168,3 +169,57 @@
     </nav>
   </div>
 </header>
+
+<!-- Modal container -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Title</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Mr.</a></li>
+              <li><a class="dropdown-item" href="#">Mrs.</a></li>
+              <li><a class="dropdown-item" href="#">Dr.</a></li>
+              <li><a class="dropdown-item" href="#">Prof.</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Others</a></li>
+            </ul>
+            <input type="text" class="form-control" id="recipient-name" aria-label="Text input with dropdown button" placeholder="Name">
+          </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Company [Optional]</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Country</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Email</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Phone [Optional]</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>

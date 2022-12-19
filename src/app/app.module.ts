@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './pages/404.component';
 import { ProjectComponent } from './pages/project.component';
 import { appRoutes } from './routes';
 import { FAQComponent } from './pages/faq.component';
+import { PolicyComponent } from './pages/policy.component';
+import { TermsComponent } from './pages/terms.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { FAQComponent } from './pages/faq.component';
     LearnMoreComponent,
     ProjectComponent,
     FAQComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TermsComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,

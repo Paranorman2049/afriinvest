@@ -29,8 +29,7 @@
                 </div>
 
                 <div class="d-grid d-sm-flex gap-3">
-                <a class="btn btn-primary btn-transition px-6" href="./page-login-simple.html">Get started</a>
-                <a class="btn btn-link" href="#">Learn more <i class="bi-chevron-right small ms-1"></i></a>
+                <a class="btn btn-link ps-0 fs-4" [routerLink]="['/learnmore']">Learn more <i class="bi-chevron-right small ms-1"></i></a>
                 </div>
             </div>
             <!-- End Col -->
@@ -99,7 +98,7 @@
                 <!-- End List Pointer -->
             </div>
             
-            <a class="card-footer card-link border-top" href="#">Learn more <i class="bi-chevron-right small ms-1"></i></a>
+            <a class="card-footer card-link border-top" [routerLink]="['/learnmore']" fragment="nigeria_">Learn more <i class="bi-chevron-right small ms-1"></i></a>
             </div>
             <!-- End Card -->
         </div>
@@ -125,7 +124,7 @@
                 <!-- End List Pointer -->
             </div>
             
-            <a class="card-footer card-link border-top" href="#">Learn more <i class="bi-chevron-right small ms-1"></i></a>
+            <a class="card-footer card-link border-top" [routerLink]="['/learnmore']" fragment="zimbabwe_">Learn more <i class="bi-chevron-right small ms-1"></i></a>
             </div>
             <!-- End Card -->
         </div>
@@ -151,7 +150,7 @@
                 <!-- End List Pointer -->
             </div>
             
-            <a class="card-footer card-link border-top" href="#">Learn more <i class="bi-chevron-right small ms-1"></i></a>
+            <a class="card-footer card-link border-top" [routerLink]="['/learnmore']" fragment="others_">Learn more <i class="bi-chevron-right small ms-1"></i></a>
             </div>
             <!-- End Card -->
         </div>
@@ -225,7 +224,7 @@
             </ul>
             <!-- End List Checked -->
 
-            <a class="btn btn-primary" href="#">See Investment Offering</a>
+            <a class="btn btn-primary" [routerLink]="['/howto']">See Investment Offering</a>
 
             <hr class="my-5">
 
@@ -349,7 +348,7 @@
         <div class="row gx-lg-7">
             <div class="col-sm-6 col-lg-4 mb-5">
                 <!-- Card -->
-                <a class="card card-flush h-100" href="#" data-aos="fade-up">
+                <a class="card card-flush h-100" data-aos="fade-up">
                     <!--./assets/img/480x320/img33.jpg-->
                     <img class="card-img" src="./images/red-yellow-garri-bowls-table-top_539365-1829.webp" alt="Garri Images">
                     <div class="card-body">
@@ -364,7 +363,7 @@
 
             <div class="col-sm-6 col-lg-4 mb-5">
                 <!-- Card -->
-                <a class="card card-flush h-100" href="#" data-aos="fade-up" data-aos-delay="150">
+                <a class="card card-flush h-100" data-aos="fade-up" data-aos-delay="150">
                     <!-- ./assets/img/480x320/img34.jpg -->
                     <img class="card-img" src="./images/zimbabwe_gold_mine.jpg" alt="Zimbabwe Gold mine image">
                     <div class="card-body">
@@ -379,7 +378,7 @@
 
             <div class="col-sm-6 col-lg-4 mb-5">
                 <!-- Card -->
-                <a class="card card-flush h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="200">
+                <a class="card card-flush h-100 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                     <img class="card-img" src="./assets/img/480x320/img35.jpg" alt="Image Description">
                     <div class="card-body">
                     <span class="card-subtitle text-body">Learn about other solutions</span>
@@ -398,7 +397,7 @@
         <div class="text-center">
         <div class="card card-info-link card-sm">
             <div class="card-body">
-            Want to read more? <a class="card-link ms-2" href="#">Go here <span class="bi-chevron-right small ms-1"></span></a>
+            Want to read more? <a class="card-link ms-2" [routerLink]="['/learnmore']">Go here <span class="bi-chevron-right small ms-1"></span></a>
             </div>
         </div>
         </div>
