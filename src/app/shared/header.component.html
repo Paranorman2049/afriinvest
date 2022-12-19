@@ -79,7 +79,7 @@
                           <span class="h2 d-block">Your One-Stop-Shop Investment Firm</span>
                           <p>Bridging the Gap between investment &amp; investors.</p>
                         </div>
-                        <a class="btn btn-primary btn-transition" [routerLink]="['/learnmore']">Learn more <i class="bi-chevron-right small"></i></a>
+                        <a class="btn btn-primary btn-transition" [routerLink]="['/learnmore']">Learn more<i class="bi-chevron-right small"></i></a>
                       </div>
                     </div>
                     <!-- End Banner Image -->
@@ -108,7 +108,6 @@
                             <a class="dropdown-item anchor-tag-hider" href="#">D</a>
                             <a class="dropdown-item anchor-tag-hider" href="#">E</a>
                             <a class="dropdown-item anchor-tag-hider" href="#">F</a>
-
                           </div>
                         </div>
                         <!-- End Col -->
@@ -132,9 +131,11 @@
               <div class="hs-sub-menu dropdown-menu" aria-labelledby="companyMegaMenu" style="min-width: 14rem;">
                 <a class="dropdown-item " [routerLink]="['/howto']">How to Invest</a>
                 <a class="dropdown-item " [routerLink]="['/learnmore']" fragment="collaborate">Proposals</a>
-                <a class="dropdown-item " href="./page-customer-story.html">Customer Story</a>
                 <a class="dropdown-item " [routerLink]="['/faq']">FAQ</a>
                 <a class="dropdown-item " [routerLink]="['/hireus']">Hire Us</a>
+                <a class="dropdown-item " href="#">Customer stories</a>
+                <a class="dropdown-item anchor-tag-hider" href="#">E</a>
+                <a class="dropdown-item anchor-tag-hider" href="#">F</a>
               </div>
               <!-- End Mega Menu -->
             </li>
@@ -142,38 +143,22 @@
 
             <!-- Account -->
             <li class="hs-has-sub-menu nav-item">
-              <a id="accountMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Contact us</a>
+              <a id="accountMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " [routerLink]="['/contactus']" role="button" aria-expanded="false">Contact us</a>
 
               <!-- Mega Menu -->
               <div class="hs-sub-menu dropdown-menu" aria-labelledby="accountMegaMenu" style="min-width: 14rem;">
-                <a class="dropdown-item " href="./account-overview.html">See our details</a>
-                <a class="dropdown-item " href="./account-security.html">Send us a mail</a>
-                <a class="dropdown-item " href="./account-notifications.html">Connect on Social media</a>
-                <a class="dropdown-item " href="./account-notifications.html">Meet the team</a>
-                <a class="dropdown-item " href="./account-preferences.html">Special needs?</a>
+                <a class="dropdown-item " [routerLink]="['/contactus']">See our details</a>
+                <a class="dropdown-item " [routerLink]="['/contactus']" fragment="social_media_container">Connect on Social media</a>
+                <a class="dropdown-item anchor-tag-hider" href="#">E</a>
+                <a class="dropdown-item anchor-tag-hider" href="#">E</a>
               </div>
               <!-- End Mega Menu -->
             </li>
             <!-- End Account -->
 
-            <!-- Blog -->
-            <li class="hs-has-sub-menu nav-item">
-              <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Blog</a>
-
-              <!-- Mega Menu -->
-              <div class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 14rem;">
-                <a class="dropdown-item " href="./blog-newsroom.html">Newsroom</a>
-                <a class="dropdown-item " href="./blog-article.html">Media</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item " href="./blog-author-profile.html">Customer stories</a>
-              </div>
-              <!-- End Mega Menu -->
-            </li>
-            <!-- End Blog -->
-
             <!-- Button -->
             <li class="nav-item">
-              <a class="btn btn-primary btn-transition" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Message Us Now!</a>
+              <a class="btn btn-primary btn-transition"  [routerLink]="['/contactus']" target="_blank">Message Us Now!</a>
             </li>
             <!-- End Button -->
           </ul>
