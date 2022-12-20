@@ -14,10 +14,12 @@ import { HowToComponent } from './pages/howto.component';
 import { LearnMoreComponent } from './pages/learnmore.component';
 import { PageNotFoundComponent } from './pages/404.component';
 import { ProjectComponent } from './pages/project.component';
-import { appRoutes } from './routes';
 import { FAQComponent } from './pages/faq.component';
 import { PolicyComponent } from './pages/policy.component';
 import { TermsComponent } from './pages/terms.component';
+import { CustomerStoriesComponent } from './pages/customer.stories.component';
+
+import { appRoutes } from './routes';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { TermsComponent } from './pages/terms.component';
     FAQComponent,
     PageNotFoundComponent,
     TermsComponent,
-    PolicyComponent
+    PolicyComponent,
+    CustomerStoriesComponent
   ],
   imports: [
     BrowserModule,

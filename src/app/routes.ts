@@ -11,6 +11,7 @@ import { ProjectComponent } from './pages/project.component';
 import { FAQComponent } from './pages/faq.component';
 import { TermsComponent } from './pages/terms.component';
 import { PolicyComponent } from './pages/policy.component';
+import { CustomerStoriesComponent } from './pages/customer.stories.component';
 
 export const appRoutes:Routes = [
     { path: 'home', component: HomeComponent },
@@ -24,6 +25,7 @@ export const appRoutes:Routes = [
     { path: 'faq', component: FAQComponent },
     { path: 'policy', component: PolicyComponent },
     { path: 'terms', component: TermsComponent },
+    { path: 'stories', component: CustomerStoriesComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ]
