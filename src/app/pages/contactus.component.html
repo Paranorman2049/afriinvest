@@ -11,22 +11,23 @@
         <div class="row">
           <div class="col-md-4 mb-3 mb-md-0">
             <!-- Card -->
-            <a class="card card-transition text-center h-100" href="#">
+            <a class="card card-transition text-center h-100" [routerLink]="['/services']">
               <div class="card-body">
                 <div class="svg-icon text-primary mb-3">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#035A4B"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.591 13.209V14.868H11.851C14.392 14.868 16.387 12.915 16.387 10.395C16.387 7.875 14.392 5.922 11.851 5.922C9.31 5.922 7.336 7.875 7.336 10.395H9.121C9.121 8.799 10.234 7.581 11.851 7.581C13.447 7.581 14.602 8.799 14.602 10.395C14.602 11.991 13.447 13.209 11.851 13.209H10.591ZM12 16C11.4477 16 11 16.4477 11 17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16Z" fill="#035A4B"/>
+                    <path d="M20 8H16C15.4 8 15 8.4 15 9V16H10V17C10 17.6 10.4 18 11 18H16C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18H21C21.6 18 22 17.6 22 17V13L20 8Z" fill="#035A4B"/>
+                    <path opacity="0.3" d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z" fill="#035A4B"/>
                   </svg>
+                    
 
                 </div>
 
-                <h4 class="card-title">Knowledgebase</h4>
-                <p class="card-text text-body">We're here to help with any questions or code.</p>
+                <h4 class="card-title">Services</h4>
+                <p class="card-text text-body">What we got up our sleeve so you can sleep in peace</p>
               </div>
 
               <div class="card-footer pt-0">
-                <span class="card-link">Contact support <i class="bi-chevron-right small ms-1"></i></span>
+                <span class="card-link">See services <i class="bi-chevron-right small ms-1"></i></span>
               </div>
             </a>
             <!-- End Card -->
@@ -35,7 +36,7 @@
 
           <div class="col-md-4 mb-3 mb-md-0">
             <!-- Card -->
-            <a class="card card-transition text-center h-100" href="#">
+            <a class="card card-transition text-center h-100" [routerLink]="['/faq']">
               <div class="card-body">
                 <div class="svg-icon text-primary mb-3">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +60,7 @@
 
           <div class="col-md-4">
             <!-- Card -->
-            <a class="card card-transition text-center h-100" href="#">
+            <a class="card card-transition text-center h-100" [routerLink]="['/learnmore']">
               <div class="card-body">
                 <div class="svg-icon text-primary mb-3">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,12 +70,12 @@
 
                 </div>
 
-                <h4 class="card-title">Developer APIs</h4>
-                <p class="card-text text-body">Check out our development quickstart guide.</p>
+                <h4 class="card-title">Learn more</h4>
+                <p class="card-text text-body">See eleborate information about our services</p>
               </div>
 
               <div class="card-footer pt-0">
-                <span class="card-link">Contact sales <i class="bi-chevron-right small ms-1"></i></span>
+                <span class="card-link">Learn more<i class="bi-chevron-right small ms-1"></i></span>
               </div>
             </a>
             <!-- End Card -->

@@ -48,7 +48,8 @@
               "src/assets/vendor/typed.js/lib/typed.min.js",
               "src/assets/vendor/swiper/swiper-bundle.min.js",
               "src/assets/vendor/leaflet/dist/leaflet.js",
-              "src/assets/js/theme.min.js"
+              "src/assets/js/theme.min.js",
+              "src/assets/vendor/smtpjs/smtpjs.js"
             ]
           },
           "configurations": {
