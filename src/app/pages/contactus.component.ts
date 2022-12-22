@@ -4,10 +4,19 @@ declare let HSCore: any;
 declare let L: any;
 
 @Component({
-    templateUrl: './contactus.component.html'
+    templateUrl: './contactus.component.html',
+    styles:[`
+        em { color: red; float: right; }
+    `]
 })
 export class ContactUsComponent implements OnInit { 
+    firstName: string = '';
+    lastName: string = '';
+    emailTo: string = '';
+    phone: string = '';
+    emailTextArea: string = '';
 
+    mouseoverLogin: any = false;
     ngOnInit(): void {
         // INITIALIZATION OF LEAFLET
         // =======================================================
@@ -19,5 +28,9 @@ export class ContactUsComponent implements OnInit {
                 id: 'mapbox/light-v9'
             }
         ).addTo(leaflet)
+    }
+
+    sendMail(formValues: any): void {
+        console.log(formValues);
     }
  }

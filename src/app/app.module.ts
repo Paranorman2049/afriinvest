@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeadComponent } from './shared/header.component';
@@ -18,6 +19,7 @@ import { FAQComponent } from './pages/faq.component';
 import { PolicyComponent } from './pages/policy.component';
 import { TermsComponent } from './pages/terms.component';
 import { CustomerStoriesComponent } from './pages/customer.stories.component';
+import { SendMailService } from './shared/send.mail.service';
 
 import { appRoutes } from './routes';
 
@@ -43,9 +45,11 @@ import { appRoutes } from './routes';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [SendMailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
