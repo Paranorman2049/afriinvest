@@ -179,46 +179,67 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
 
+        <form #modalForm="ngForm" (ngSubmit)="sendMessage(modalForm.value)" id="sendMailForm" novalidate autocomplete="false">
           <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Title</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">Mr.</a></li>
-              <li><a class="dropdown-item">Mrs.</a></li>
-              <li><a class="dropdown-item">Dr.</a></li>
-              <li><a class="dropdown-item">Prof.</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item">Others</a></li>
-            </ul>
-            <input type="text" class="form-control" id="recipient-name" aria-label="Text input with dropdown button" placeholder="Name">
+            <label class="input-group-text" for="title">Title</label>
+            <select class="form-select" id="title" name="title" (ngModel)="title" #title="ngModel">
+              <option selected>Choose...</option>
+              <option value="Mr.">Mr.</option>
+              <option value="Mrs.">Mrs.</option>
+              <option value="Dr.">Dr.</option>
+              <option value="Prof.">Prof.</option>
+              <option value="Others">Others</option>
+            </select>
+
+            <input type="text" #fullName="ngModel" (ngModel)="fullName" required name="fullName"
+              class="form-control" id="fullName" aria-label="Text input with dropdown button" placeholder="Full Name"
+                minlength="2" [ngClass]="{'error': fullName.touched && fullName.invalid}">
+
           </div>
 
+          <div><em *ngIf="fullName.invalid && fullName.touched">Required</em></div>
+          
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Company [Optional]</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="company" class="col-form-label">Company [Optional]</label>
+            <input type="text" #company="ngModel" (ngModel)="company" class="form-control" id="company" name="company">
           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Country</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="country" class="col-form-label">Country</label>
+            <input type="text" #country="ngModel" (ngModel)="country" id="country" name="country" minlength="2"
+              [ngClass]="{'error': country.touched && country.errors}"
+              class="form-control" required>
+            <em *ngIf="country.invalid && country.touched">Required</em>
           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Email</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="email" class="col-form-label">Email</label>
+            <input type="text" #email="ngModel" (ngModel)="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [ngClass]="{'error': email.touched && email.errors}" class="form-control" required>
+              <em *ngIf="email.touched && email.errors">Required</em>
           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Phone [Optional]</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="phone" class="col-form-label">Phone [Optional]</label>
+            <input type="text" #phone="ngModel" (ngModel)="phone" name="phone" id="phone" class="form-control">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="subject" class="col-form-label">Subject of Email</label>
+            <input type="text" #subject="ngModel" (ngModel)="subject" name="subject" id="subject" minlength="5"
+              [ngClass]="{'error': subject.touched && subject.invalid}" class="form-control" required>
+              <em *ngIf="subject.invalid && subject.touched">Required</em>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message" #message="ngModel" (ngModel)="message" name="message" minlength="5"
+              [ngClass]="{'error': message.touched && message.invalid}" required></textarea>
+              <em *ngIf="message.invalid && message.touched">Required</em>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary"[disabled]="modalForm.invalid">Send message</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+
+        
       </div>
     </div>
   </div>

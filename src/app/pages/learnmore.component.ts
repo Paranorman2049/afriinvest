@@ -18,25 +18,36 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class LearnMoreComponent implements OnInit {
     learnMoreForm!: FormGroup;
+    firstName!:FormControl
+    lastName!: FormControl
+    email!: FormControl
+    companyName!: FormControl
+    budget!: FormControl
+    message!: FormControl
+    privacyCheck!: FormControl
 
     ngOnInit(): void {
-        let firstName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
-        let lastName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
-        let email = new FormControl("", [Validators.required, Validators.pattern('')]);
-        let companyName = new FormControl("");
-        let budget = new FormControl("", Validators.required);
-        let message = new FormControl("", Validators.required);
-        let privacyCheck = new FormControl();
+        this.firstName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
+        this.lastName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
+        this.email = new FormControl("", [Validators.required, Validators.pattern('')]);
+        this.companyName = new FormControl("");
+        this.budget = new FormControl("", Validators.required);
+        this.message = new FormControl("", Validators.required);
+        this.privacyCheck = new FormControl();
 
         this.learnMoreForm = new FormGroup({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            companyName: companyName,
-            budget : budget,
-            message: message,
-            privacyCheck: privacyCheck
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            companyName: this.companyName,
+            budget : this.budget,
+            message: this.message,
+            privacyCheck: this.privacyCheck
         })
+    }
+
+    validateName(): any {
+        return this.firstName.invalid && this.firstName.errors
     }
 
     showErrorMessage(): void {

@@ -97,159 +97,222 @@
     <!-- End Hero -->
 
     <!-- Contact Form -->
-<div class="container content-space-t-3 content-space-t-lg-5 content-space-b-2">
-  <div class="row">
-    <div class="col-lg-6 mb-9 mb-lg-0">
-      <!-- Heading -->
-      <div class="mb-5">
-        <h1>Get in touch</h1>
-        <p>We'd love to talk about how we can help you.</p>
-      </div>
-      <!-- End Heading -->
-
-      <!-- Leaflet -->
-      <div class="overflow-hidden">
-        <div id="mapEg3" class="leaflet mb-5"
-             data-hs-leaflet-options='{
-             "map": {
-               "scrollWheelZoom": false,
-               "coords": [37.4040344, -122.0289704]
-             },
-             "marker": [
-               {
-                 "coords": [37.4040344, -122.0289704],
-                 "icon": {
-                   "iconUrl": "../assets/svg/components/map-pin.svg",
-                   "iconSize": [50, 45]
-                 },
-                 "popup": {
-                   "text": "153 Williamson Plaza, Maggieberg"
-                 }
-               }
-             ]
-            }'></div>
-      </div>
-      <!-- End Leaflet -->
-
+    <div class="container content-space-t-3 content-space-t-lg-5 content-space-b-2">
       <div class="row">
-        <div class="col-sm-6">
-          <h5 class="mb-1">Call us:</h5>
-          <p>+1 (062) 109-9222</p>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-6">
-          <h5 class="mb-1">Email us:</h5>
-          <p>hello@example.com</p>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-6">
-          <h5 class="mb-1">Address:</h5>
-          <p>153 Williamson Plaza, Maggieberg</p>
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-    </div>
-    <!-- End Col -->
-
-    <div class="col-lg-6">
-      <div class="ps-lg-5">
-        <!-- Card -->
-        <div class="card">
-          <div class="card-header border-bottom text-center">
-            <h3 class="card-header-title">General inquiries</h3>
+        <div class="col-lg-6 mb-9 mb-lg-0">
+          <!-- Heading -->
+          <div class="mb-5">
+            <h1>Get in touch</h1>
+            <p>We'd love to talk about how we can help you.</p>
           </div>
+          <!-- End Heading -->
 
-          <div class="card-body">
-            <!-- Form -->
-            <form #mailForm="ngForm" (ngSubmit)="sendMail(mailForm.value)" novalidate>
-              <div class="row gx-3">
-                <div class="col-sm-6">
+          <!-- Leaflet -->
+          <div class="overflow-hidden">
+            <div id="mapEg3" class="leaflet mb-5"
+                data-hs-leaflet-options='{
+                "map": {
+                  "scrollWheelZoom": false,
+                  "coords": [37.4040344, -122.0289704]
+                },
+                "marker": [
+                  {
+                    "coords": [37.4040344, -122.0289704],
+                    "icon": {
+                      "iconUrl": "../assets/svg/components/map-pin.svg",
+                      "iconSize": [50, 45]
+                    },
+                    "popup": {
+                      "text": "153 Williamson Plaza, Maggieberg"
+                    }
+                  }
+                ]
+                }'></div>
+          </div>
+          <!-- End Leaflet -->
+
+          <div class="row">
+            <div class="col-sm-6">
+              <h5 class="mb-1">Call us:</h5>
+              <p>+1 (062) 109-9222</p>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6">
+              <h5 class="mb-1">Email us:</h5>
+              <p>hello@example.com</p>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6">
+              <h5 class="mb-1">Address:</h5>
+              <p>153 Williamson Plaza, Maggieberg</p>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-6">
+          <div class="ps-lg-5">
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header border-bottom text-center">
+                <h3 class="card-header-title">General inquiries</h3>
+              </div>
+
+              <div class="card-body">
+                <!-- Form -->
+                <form #mailForm="ngForm" (ngSubmit)="sendMessage(mailForm.value)" autocomplete="off" novalidate>
+                  <div class="row gx-3">
+                    <div class="col-sm-6">
+                      <!-- Form -->
+                      <div class="mb-3">
+                        <label class="form-label" for="firstName">First name</label>
+                        <input type="text" #firstName = "ngModel" (ngModel)="firstName" name="firstName" id="firstName"
+                                placeholder="First name" aria-label="First name" class="form-control form-control-lg" required>
+                        <em *ngIf="mailForm.controls['firstName']?.invalid && (mailForm.controls['firstName']?.touched || mouseoverLogin)">Required</em>
+                      </div>
+                      <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-6">
+                      <!-- Form -->
+                      <div class="mb-3">
+                        <label class="form-label" for="lastName">Last name</label>
+                        <input type="text" (ngModel)="lastName" name="lastName" id="lastName"
+                                placeholder="Last name" aria-label="Last name" class="form-control form-control-lg" required>
+                        <em *ngIf="mailForm.controls['lastName']?.invalid && (mailForm.controls['lastName']?.touched || mouseoverLogin)">Required</em>
+                      </div>
+                      <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+
+                  <div class="row gx-3">
+                    <div class="col-sm-6">
+                      <!-- Form -->
+                      <div class="mb-3">
+                        <label class="form-label" for="emailTo">Email address</label>
+                        <input type="email" (ngModel)="vistorEmail" name="vistorEmail" id="vistorEmail"
+                                placeholder="email@site.com" aria-label="email@site.com" class="form-control form-control-lg" required>
+                        <em *ngIf="mailForm.controls['vistorEmail']?.invalid && (mailForm.controls['vistorEmail']?.touched || mouseoverLogin)">Required</em>
+                      </div>
+                      <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-6">
+                      <!-- Form -->
+                      <div class="mb-3">
+                        <label class="form-label" for="phone">Phone <span class="form-label-secondary">(Optional)</span></label>
+                        <input type="text" (ngModel)="phone" name="phone" id="phone" p
+                                placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" class="form-control form-control-lg">
+                        
+                      </div>
+                      <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+
                   <!-- Form -->
                   <div class="mb-3">
-                    <label class="form-label" for="firstName">First name</label>
-                    <input type="text" (ngModel)="firstName" name="firstName" id="firstName"
-                            placeholder="First name" aria-label="First name" class="form-control form-control-lg" required>
-                    <em *ngIf="mailForm.controls['firstName']?.invalid && (mailForm.controls['firstName']?.touched || mouseoverLogin)">Required</em>
+                    <label class="form-label" for="emailSubject">Email Title/Subject</label>
+                    <input (ngModel)="emailSubject" name="emailSubject" id="emailSubject"
+                      placeholder="Email Subject" aria-label="Email Subject" rows="5" class="form-control form-control-lg" required/>
+                    <em *ngIf="mailForm.controls['emailSubject']?.invalid && (mailForm.controls['emailSubject']?.touched || mouseoverLogin)">Required</em>
                   </div>
                   <!-- End Form -->
-                </div>
-                <!-- End Col -->
 
-                <div class="col-sm-6">
                   <!-- Form -->
                   <div class="mb-3">
-                    <label class="form-label" for="lastName">Last name</label>
-                    <input type="text" (ngModel)="lastName" name="lastName" id="lastName"
-                            placeholder="Last name" aria-label="Last name" class="form-control form-control-lg" required>
-                    <em *ngIf="mailForm.controls['lastName']?.invalid && (mailForm.controls['lastName']?.touched || mouseoverLogin)">Required</em>
+                    <label class="form-label" for="emailTextArea">Details</label>
+                    <textarea (ngModel)="emailTextArea" name="emailTextArea" id="emailTextArea" 
+                      placeholder="Tell us about your ..." aria-label="Tell us about your ..." rows="5" class="form-control form-control-lg" required></textarea>
+                    <em *ngIf="mailForm.controls['emailTextArea']?.invalid && (mailForm.controls['emailTextArea']?.touched || mouseoverLogin)">Required</em>
                   </div>
                   <!-- End Form -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
 
-              <div class="row gx-3">
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-3">
-                    <label class="form-label" for="emailTo">Email address</label>
-                    <input type="email" (ngModel)="emailTo" name="emailTo" id="emailTo" 
-                            placeholder="email@site.com" aria-label="email@site.com" class="form-control form-control-lg" required>
-                    <em *ngIf="mailForm.controls['emailTo']?.invalid && (mailForm.controls['emailTo']?.touched || mouseoverLogin)">Required</em>
+                  <div class="d-grid">
+                    <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+                      <button id="sendMilBtn" [disabled]="mailForm.invalid" (click)="resetForm(mailForm)"
+                        type="submit" class="btn btn-primary btn-lg">
+                        Send inquiry
+                      </button>
+                    </span>
                   </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
 
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-3">
-                    <label class="form-label" for="phone">Phone <span class="form-label-secondary">(Optional)</span></label>
-                    <input type="text" (ngModel)="phone" name="phone" id="phone" p
-                            laceholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" class="form-control form-control-lg">
-                    
+                  <div class="text-center">
+                    <p class="form-text">We'll get back to you in 1-2 business days.</p>
                   </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
+                </form>
+                <!-- End Form -->
               </div>
-              <!-- End Row -->
-
-              <!-- Form -->
-              <div class="mb-3">
-                <label class="form-label" for="emailTextArea">Details</label>
-                <textarea (ngModel)="emailTextArea" name="emailTextArea" id="emailTextArea" 
-                  placeholder="Tell us about your ..." aria-label="Tell us about your ..." rows="5" class="form-control form-control-lg" required></textarea>
-                <em *ngIf="mailForm.controls['emailTextArea']?.invalid && (mailForm.controls['emailTextArea']?.touched || mouseoverLogin)">Required</em>
-              </div>
-              <!-- End Form -->
-
-              <div class="d-grid">
-                <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
-                  <button id="sendMilBtn" [disabled]="mailForm.invalid" type="submit" class="btn btn-primary btn-lg">
-                    Send inquiry
-                  </button>
-                </span>
-              </div>
-
-              <div class="text-center">
-                <p class="form-text">We'll get back to you in 1-2 business days.</p>
-              </div>
-            </form>
-            <!-- End Form -->
+            </div>
+            <!-- End Card -->
           </div>
         </div>
-        <!-- End Card -->
-      </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
     </div>
-      <!-- End Col -->
-    </div>
-    <!-- End Row -->
-  </div>
-  <!-- End Contact Form -->
-      <!-- End Leaflet -->
+    <!-- End Contact Form -->
+    <!-- End Leaflet -->
+
+    <!-- modal for email -->
+
+        <!-- Button trigger success modal -->
+        <button id="emailFeedBackBtn" #emailFeedBackBtn type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        </button>
+        <!-- End Button trigger modal -->
+
+        <!-- Modal -->
+        <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-success" id="exampleModalCenterTitle">Message Sent!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>We'll reach you in <strong>1 - 3 Working days</strong>, thank you for your time.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal -->
+
+         <!-- Button trigger failure modal -->
+         <button id="emailFeedBackBtn2" #emailFeedBackBtn type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
+        </button>
+        <!-- End Button trigger modal -->
+
+        <!-- Modal -->
+        <div id="exampleModalCenter2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-success" id="exampleModalCenterTitle">Message Sent!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Soemthing went wrong and your email could not be set. Check your internet. If it's an internal error, our admins are already notified, thank you.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal -->
+
+    <!-- end model for email -->
+
   </main>

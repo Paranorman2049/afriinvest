@@ -205,11 +205,11 @@
                     <!-- Form -->
                     <div class="mb-4">
                       <label class="form-label" for="firstName">First name</label>
-                      <input type="text" formControlName="firstName" name="firstName" id="firstName" 
+                      <input type="text" formControlName="firstName" name="firstName" id="firstName" pattern="^[a-zA-Z]+.{1,}$"
                             placeholder="First name" aria-label="First name" class="form-control form-control-lg"
                             [ngClass]="{'error': learnMoreForm.controls['firstName'].invalid && learnMoreForm.controls['firstName'].touched}">
-                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid">Required</em>
-                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid && learnMoreForm.controls['firstName'].errors">Required</em>
+                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid && learnMoreForm.controls['firstName'].touched">Required</em>
+                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid && learnMoreForm.controls['firstName'].errors">Invalid Format</em>
                     </div>
                     <!-- End Form -->
                   </div>
@@ -218,11 +218,11 @@
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
-                    <label class="form-label" for="lastName">Last name</label>
-                    <input type="text"  formControlName="lastName" name="lastName" id="lastName" 
-                          placeholder="Last name" aria-label="Last name" class="form-control form-control-lg"
-                          [ngClass]="{'error': learnMoreForm.controls['lastName'].invalid && learnMoreForm.controls['lastName'].touched}">
-                    <em *ngIf="learnMoreForm.controls['lastName']?.invalid">Required</em>
+                      <label class="form-label" for="lastName">Last name</label>
+                      <input type="text"  formControlName="lastName" name="lastName" id="lastName" 
+                            placeholder="Last name" aria-label="Last name" class="form-control form-control-lg"
+                            [ngClass]="{'error': learnMoreForm.controls['lastName'].invalid && learnMoreForm.controls['lastName'].touched}">
+                      <em *ngIf="learnMoreForm.controls['lastName']?.invalid">Required</em>
                     </div>
                     <!-- End Form -->
                   </div>
