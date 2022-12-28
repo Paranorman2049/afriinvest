@@ -20,6 +20,8 @@ import { PolicyComponent } from './pages/policy.component';
 import { TermsComponent } from './pages/terms.component';
 import { CustomerStoriesComponent } from './pages/customer.stories.component';
 import { SendMailService } from './shared/send.mail.service';
+import { ProjectDetailService } from './shared/project.details.service';
+import { ProjectDetailsComponent } from './pages/project.details.component';
 
 import { appRoutes } from './routes';
 
@@ -41,7 +43,8 @@ import { appRoutes } from './routes';
     PageNotFoundComponent,
     TermsComponent,
     PolicyComponent,
-    CustomerStoriesComponent
+    CustomerStoriesComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { appRoutes } from './routes';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [SendMailService],
+  providers: [ SendMailService, ProjectDetailService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

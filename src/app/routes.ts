@@ -12,6 +12,7 @@ import { FAQComponent } from './pages/faq.component';
 import { TermsComponent } from './pages/terms.component';
 import { PolicyComponent } from './pages/policy.component';
 import { CustomerStoriesComponent } from './pages/customer.stories.component';
+import { ProjectDetailsComponent } from './pages/project.details.component';
 
 export const appRoutes:Routes = [
     { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ export const appRoutes:Routes = [
     { path: 'contactus', component: ContactUsComponent },
     { path: 'howto', component: HowToComponent },
     { path: 'learnmore', component: LearnMoreComponent },
+    { path: 'project/:id', component:ProjectDetailsComponent },
     { path: 'project', component: ProjectComponent },
     { path: 'faq', component: FAQComponent },
     { path: 'policy', component: PolicyComponent },

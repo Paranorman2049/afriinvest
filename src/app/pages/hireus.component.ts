@@ -1,4 +1,4 @@
-import  { Component } from  '@angular/core'
+import  { Component, ViewChild, ElementRef } from  '@angular/core'
 import { FormGroup, NgForm } from '@angular/forms';
 import { SendMailService } from '../shared/send.mail.service';
 
@@ -9,26 +9,30 @@ import { SendMailService } from '../shared/send.mail.service';
     `]
 })
 export class HireUsComponent {
-    contactForm?: FormGroup
+    contactForm!: FormGroup
 
     firstName: any;
     lastName: any;
-    email: any;
+    email: any ;
     company: any;
-    budget: any;
+    budget: any
     message: any;
 
-    constructor(private emailService: SendMailService) {
+    @ViewChild('emailFeedbackModalBtn') emailFeedbackModalBtn!: ElementRef;
 
+    constructor(private emailService: SendMailService) {
+        console.log(this.email);
     }
 
-    sendMessage(formValues: any): void {
-        this.firstName = formValues.firstName;
+    sendMessage(formValues: any) {
+        this.firstName = formValues.firstName
         this.lastName = formValues.lastName;
         this.email = formValues.email;
+        this.company = formValues.company;
         this.budget = formValues.budget;
         this.message = formValues.message;
-        this.company = formValues.company;
+
+        // console.log(formValues);
 
         const emailBody: string = `
         <div>
@@ -36,7 +40,7 @@ export class HireUsComponent {
                 <div>Email details:</div><hr />
                 <em>Sent from the the <strong>'Hire Us' page</strong> in <strong>Affriinvest.com</strong></em><br />
                 <em>Client's budget: <strong>${this.budget}</strong></em><br />
-                <em>Client's compnay: <strong>${this.company}</strong></em><br />
+                <em>Client's company Name: <strong>${this.company}</strong></em><br />
                 <em>Contact's email: <strong>${this.email}</strong><br />
                 <em>Contact's Name (Surname first): <strong>${this.lastName + ' ' + this.firstName}</strong><br />
             </p>
@@ -47,11 +51,18 @@ export class HireUsComponent {
         </div>
         `
         
-        this.emailService.sendMail(this.emailService.getAuthCredentails().Username, 'Sent From the Afriinvest Hire Us Page',
-            emailBody)
+        this.emailService.sendMail(
+            this.emailService.getAuthCredentails().Username,
+            'Sent From the Afriinvest Hire Us Page',
+            emailBody
+        );
+
+        this.emailFeedbackModalBtn.nativeElement.click();
     }
 
     resetForm(form: NgForm) {
-        form.reset();
+        setTimeout(() => {
+            form.reset();
+        }, 1800);
     }
 }

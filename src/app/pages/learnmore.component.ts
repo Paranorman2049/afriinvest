@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Component, ViewChild, ElementRef } from "@angular/core";
+import {  NgForm } from "@angular/forms";
+import { SendMailService } from "../shared/send.mail.service";
 
 @Component({
     templateUrl: 'learnmore.component.html',
@@ -16,47 +17,60 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
         .error :ms-input-placeholder { color: #999; }
     `]
 })
-export class LearnMoreComponent implements OnInit {
-    learnMoreForm!: FormGroup;
-    firstName!:FormControl
-    lastName!: FormControl
-    email!: FormControl
-    companyName!: FormControl
-    budget!: FormControl
-    message!: FormControl
-    privacyCheck!: FormControl
+export class LearnMoreComponent  {
+    learnMoreForm!: NgForm;
 
-    ngOnInit(): void {
-        this.firstName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
-        this.lastName = new FormControl("", [Validators.required, Validators.pattern('^[a-zA-Z- ]*$')]);
-        this.email = new FormControl("", [Validators.required, Validators.pattern('')]);
-        this.companyName = new FormControl("");
-        this.budget = new FormControl("", Validators.required);
-        this.message = new FormControl("", Validators.required);
-        this.privacyCheck = new FormControl();
+    firstName: any;
+    lastName: any;
+    email!: any;
+    companyName: any;
+    budget: any;
+    message: any;
+    privacyCheck: any;
 
-        this.learnMoreForm = new FormGroup({
-            firstName: this.firstName,
-            lastName: this.lastName,
-            email: this.email,
-            companyName: this.companyName,
-            budget : this.budget,
-            message: this.message,
-            privacyCheck: this.privacyCheck
-        })
-    }
+    @ViewChild('emailFeedbackModalBtn') modalBtn!: ElementRef;
 
-    validateName(): any {
-        return this.firstName.invalid && this.firstName.errors
-    }
-
-    showErrorMessage(): void {
-        // to do later on
+    constructor(private emailService: SendMailService) {
+        
     }
 
     sendMail(formValues: any): void {
-        if (formValues.valid) {
-            console.log(this.learnMoreForm.controls)
-        }
+        this.firstName = formValues.firstName
+        this.lastName = formValues.lastName;
+        this.email = formValues.email;
+        this.companyName = formValues.companyName;
+        this.budget = formValues.budget;
+        this.message = formValues.message;
+
+        const emailBody: string = `
+        <div>
+            <p>
+                <div>Email details:</div><hr />
+                <em>Sent from the the <strong>'Learn More' page</strong> in <strong>Affriinvest.com</strong></em><br />
+                <em>Client's budget: <strong>${this.budget}</strong></em><br />
+                <em>Client's company Name: <strong>${this.companyName}</strong></em><br />
+                <em>Contact's email: <strong>${this.email}</strong><br />
+                <em>Contact's Name (Surname first): <strong>${this.lastName + ' ' + this.firstName}</strong><br />
+            </p>
+            <p>
+                <em>Email Body:</em><br />
+                <p style="font-size: large; text-decoration: bold;">${this.message}</p>
+            </p>
+        </div>
+        `
+
+        this.emailService.sendMail(
+            this.emailService.getAuthCredentails().Username,
+            'Sent From the Afriinvest Hire Us Page',
+            emailBody
+        );
+
+        this.modalBtn.nativeElement.click();
+    }
+
+    resetForm(form: NgForm) {
+        setTimeout(() => {
+            form.reset();  
+        }, 2000);
     }
 }

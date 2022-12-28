@@ -76,7 +76,9 @@ export class ContactUsComponent implements OnInit {
     }
 
     resetForm(form: NgForm): void {
-        form.reset();
+        setTimeout(() => {
+            form.reset(); 
+        }, 2000);
     }   
 
     

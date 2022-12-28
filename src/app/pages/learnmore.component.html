@@ -199,17 +199,15 @@
           <div class="card zi-2">
             <div class="card-body">
               <!-- Form -->
-              <form [formGroup]="learnMoreForm" (ngSubmit)="sendMail(learnMoreForm.value)" autcocomplete=off novalidate>
+              <form #learnMoreForm="ngForm" (ngSubmit)="sendMail(learnMoreForm.value)" autcocomplete=off novalidate>
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
                       <label class="form-label" for="firstName">First name</label>
-                      <input type="text" formControlName="firstName" name="firstName" id="firstName" pattern="^[a-zA-Z]+.{1,}$"
-                            placeholder="First name" aria-label="First name" class="form-control form-control-lg"
-                            [ngClass]="{'error': learnMoreForm.controls['firstName'].invalid && learnMoreForm.controls['firstName'].touched}">
-                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid && learnMoreForm.controls['firstName'].touched">Required</em>
-                      <em *ngIf="learnMoreForm.controls['firstName']?.invalid && learnMoreForm.controls['firstName'].errors">Invalid Format</em>
+                      <input type="text" (ngModel)="firstName" #firstName="ngModel" name="firstName" id="firstName" minlength="2" required
+                            placeholder="First name" aria-label="First name" class="form-control form-control-lg">
+                      <em *ngIf="firstName.touched && firstName.invalid">Required: at least 2 characters</em>
                     </div>
                     <!-- End Form -->
                   </div>
@@ -219,10 +217,9 @@
                     <!-- Form -->
                     <div class="mb-4">
                       <label class="form-label" for="lastName">Last name</label>
-                      <input type="text"  formControlName="lastName" name="lastName" id="lastName" 
-                            placeholder="Last name" aria-label="Last name" class="form-control form-control-lg"
-                            [ngClass]="{'error': learnMoreForm.controls['lastName'].invalid && learnMoreForm.controls['lastName'].touched}">
-                      <em *ngIf="learnMoreForm.controls['lastName']?.invalid">Required</em>
+                      <input type="text"  (ngModel)="lastName" #lastName="ngModel" name="lastName" id="lastName" minlength="2" required
+                            placeholder="Last name" aria-label="Last name" class="form-control form-control-lg">
+                      <em *ngIf="lastName.touched && lastName.invalid">Required: at least 2 characters</em>
                     </div>
                     <!-- End Form -->
                   </div>
@@ -233,17 +230,16 @@
                 <!-- Form -->
                 <div class="mb-4">
                   <label class="form-label" for="email">Email address</label>
-                  <input type="email" formControlName="email" name="email" id="hireUsFormWorkEmailEg1" 
-                        placeholder="email@site.com" aria-label="email@site.com" class="form-control form-control-lg"
-                        [ngClass]="{'error': learnMoreForm.controls['email'].invalid && learnMoreForm.controls['email'].touched}">
-                  <em *ngIf="learnMoreForm.controls['email']?.invalid">Required</em>
+                  <input type="email" (ngModel)="email_" #email_="ngModel" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                        placeholder="email@site.com" aria-label="email@site.com" class="form-control form-control-lg">
+                  <em *ngIf="email_.touched && (email_.invalid || email_.errors)">Required: invalid format</em>
                 </div>
                 <!-- End Form -->
 
                 <!-- Form -->
                 <div class="mb-4">
                   <label class="form-label" for="companyName">Company name <span class="form-label-secondary">(Optional)</span></label>
-                  <input type="text" formControlName="companyName" name="companyName" id="companyName" 
+                  <input type="text" (ngModel)="companyName" #companyName="ngModel" name="companyName" id="companyName" 
                         placeholder="Example Cooporations" aria-label="Example Cooporations" class="form-control form-control-lg">
                 </div>
                 <!-- End Form -->
@@ -251,43 +247,40 @@
                 <!-- Select -->
                 <div class="mb-4">
                   <label class="form-label" for="budget">Budget</label>
-                  <select id="budget" formControlName="budget" name="budget" aria-label="Tell us about your budget" class="form-select form-select-lg"
-                          [ngClass]="{'error': learnMoreForm.controls['budget'].value == 'Tell us about your budget'}">
+                  <select id="budget" (ngModel)="budget" #budget="ngModel" name="budget" 
+                    aria-label="Tell us about your budget" class="form-select form-select-lg">
                     <option selected>Tell us about your budget</option>
-                    <option value="1">$1,000 - $10,000</option>
-                    <option value="2">$10,000 - $20,000</option>
-                    <option value="3">$20,000 - $30,000</option>
-                    <option value="4">$30,000 - $40,000</option>
-                    <option value="5">$40,000 - $50,000</option>
-                    <option value="6">$50,000 - and more</option>
-                  </select>
-                  <em *ngIf="learnMoreForm.controls['budget']?.invalid || learnMoreForm.controls['budget'].value == 'Tell us about your budget'">Required</em>
+                    <option value="$1,000 - $10,000">$1,000 - $10,000</option>
+                    <option value="$10,000 - $20,000">$10,000 - $20,000</option>
+                    <option value="$20,000 - $30,000">$20,000 - $30,000</option>
+                    <option value="$30,000 - $40,000">$30,000 - $40,000</option>
+                    <option value="$40,000 - $50,000">$40,000 - $50,000</option>
+                    <option value="$50,000 - and more">$50,000 - and more</option>
+                </select>
                 </div>
                 <!-- End Select -->
 
                 <!-- Form -->
                 <div class="mb-4">
                   <label class="form-label" for="message">Details</label>
-                  <textarea name="message" formControlName="message" id="message"
-                          placeholder="Tell us about your project" aria-label="Tell us about your project" rows="4" class="form-control form-control-lg"></textarea>
-                  <em *ngIf="learnMoreForm.controls['message']?.invalid">Required</em>
+                  <textarea name="message" (ngModel)="message" #message="ngModel" id="message" required minlength="5"
+                          placeholder="Tell us about your project" aria-label="Tell us about your project" 
+                          rows="4" class="form-control form-control-lg"></textarea>
+                  <em *ngIf="message.touched && message.invalid">Required</em>
                 </div>
                 <!-- End Form -->
 
                 <!-- Check -->
                 <div class="form-check mb-4">
-                  <input type="checkbox" formControlName="privacyCheck" id="privacyCheck" name="privacyCheck" 
-                        [ngClass]="{'error': learnMoreForm.controls['privacyCheck'].invalid && learnMoreForm.controls['privacyCheck'].touched}"
+                  <input type="checkbox" (ngModel)="privacyCheck" #privacyCheck="ngModel" id="privacyCheck" name="privacyCheck" required
                         required data-msg="Please accept our Privacy Policy." class="form-check-input">
                   <label class="form-check-label small" for="privacyCheck"> By submitting this form I have read and acknowledged the <a [routerLink]="['/privacy']">Privacy Policy</a></label>
-                  <em *ngIf="learnMoreForm.controls['privacyCheck']?.invalid && learnMoreForm.controls['privacyCheck'].touched">Required</em>
+                  <em *ngIf="privacyCheck.errors && learnMoreForm.touched">Required</em>
                 </div>
                 <!-- End Check -->
 
                 <div class="d-grid mb-2">
                   <button type="submit" class="btn btn-primary btn-lg"
-                          (mouseenter)="showErrorMessage()"
-                          (mouseleave)="showErrorMessage()"
                           [disabled]="learnMoreForm.invalid">Send inquiry</button>
                 </div>
 
@@ -312,5 +305,29 @@
       <!-- End Shape -->
     </div>
     <!-- End Contacts -->
+
+    <!-- Email Feedback Modal -->
+    <div class="modal fade" id="emailFeedbackModal" tabindex="-1" aria-labelledby="learnMoreEmailFeedBackModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="emailFedbackModelTitle">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Email has been Sent! Thank you.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm(learnMoreForm)">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Email Feedback Modal -->
+
+    <!-- Button trigger modal -->
+    <button type="button" id="emailFeedbackModalBtn" #emailFeedbackModalBtn class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#emailFeedbackModal">
+    </button>
+
 </main>
 <!-- ========== END MAIN CONTENT ========== -->

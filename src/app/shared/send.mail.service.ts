@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 
 declare let Email: any;
 
@@ -15,8 +14,9 @@ export class SendMailService {
     };
 
     
-    sendMail(emailTo: string, emailSubject: string, emailBody: string): void {
+    sendMail(emailTo: string, emailSubject: string, emailBody: string): any {
         // send the email to thetarget email then returns an Observable to handle Exception apporpriately
+        let returnText: string = '';
         Email.send({
             Host: this.authCredentials.Host,
             Username: this.authCredentials.Username,
@@ -27,10 +27,13 @@ export class SendMailService {
             Body: emailBody
         }).then((message: string) => {
             console.log('message = ' + message);
+            returnText = message.valueOf()
         }).catch((error: string) =>{
             //to do, send mail to developer that an error as occured
             console.log('An error as occured while attempting to send mail = ' + error);
         })
+
+        return returnText;
     }
 
     
@@ -43,10 +46,6 @@ export class SendMailService {
     getAuthCredentails(): ISMTPServerAuth {
         return this.authCredentials;
     }
-
-    // getEmail(): any {
-    //     return Email;
-    // }
 }
 
 interface ISMTPServerAuth {
