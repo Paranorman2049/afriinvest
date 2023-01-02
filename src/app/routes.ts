@@ -14,6 +14,8 @@ import { PolicyComponent } from './pages/policy.component';
 import { CustomerStoriesComponent } from './pages/customer.stories.component';
 import { ProjectDetailsComponent } from './pages/project.details.component';
 
+// coulda used barrels for these imports but its all good for goodness sake!
+
 export const appRoutes:Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },

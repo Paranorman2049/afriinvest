@@ -43,7 +43,7 @@
   <div class="container">
     <nav class="js-mega-menu navbar-nav-wrap">
       <!-- Default Logo -->
-      <a class="navbar-brand" href="./index.html" aria-label="Front">
+      <a class="navbar-brand" [routerLink]="['/home']" aria-label="Front">
         <!-- src="./assets/svg/logos/logo.svg" -->
         <img class="navbar-brand-logo" src="./images/afriinvest_logo_free_hand.png" alt="Logo">
       </a>
@@ -125,7 +125,7 @@
 
             <!-- Company -->
             <li class="hs-has-sub-menu nav-item">
-              <a id="companyMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Invest</a>
+              <a id="companyMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " [routerLink]="['/howto']" role="button" aria-expanded="false">Invest</a>
 
               <!-- Mega Menu -->
               <div class="hs-sub-menu dropdown-menu" aria-labelledby="companyMegaMenu" style="min-width: 14rem;">
