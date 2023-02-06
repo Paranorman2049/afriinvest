@@ -36,10 +36,10 @@ const PROJECTS: IProject[] = [
 			"Ready for a change? Get yours now!",
 		],
 		imageUrls: [
-			"../assets/img/700x900/img1.jpg",
-			"../assets/img/700x900/img2.jpg",
-			"../assets/img/700x900/img1.jpg",
-			"../assets/img/700x900/img2.jpg"
+			"./assets/img/700x900/img1.jpg",
+			"./assets/img/700x900/img2.jpg",
+			"./assets/img/700x900/img1.jpg",
+			"./assets/img/700x900/img2.jpg"
 		]
 	},
 	
@@ -53,10 +53,10 @@ const PROJECTS: IProject[] = [
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		],
 		imageUrls: [
-			"../assets/img/700x900/img4.jpg",
-			"../assets/img/700x900/img5.jpg",
-			"../assets/img/700x900/img3.jpg",
-			"../assets/img/700x900/img1.jpg"
+			"./assets/img/700x900/img4.jpg",
+			"./assets/img/700x900/img5.jpg",
+			"./assets/img/700x900/img3.jpg",
+			"./assets/img/700x900/img1.jpg"
 		]
 	}		
 ]
